@@ -1,0 +1,20 @@
+rofi.lines: 7
+rofi.terminal: urxvt 
+rofi.font: Input Mono 30
+rofi.padding: 1500
+rofi.bw: 0
+rofi.matching: regex
+rofi.width: 100
+rofi.height: 100
+rofi.hide-scrollbar: true
+rofi.scroll-method: 0
+rofi.threads: 2
+rofi.color-window: argb:87870087
+rofi.color-normal: argb:00ffd787, argb:ffffff87, argb:00ffd787, argb:87ffd787, argb:ffffff87
+rofi.color-active: argb:00ffd787, argb:ffffff87, argb:00ffd787, argb:87ffd787, argb:ffffff87
+rofi.color-urgent: argb:00ffd787, argb:ffffff87, argb:00ffd787, argb:87ffd787, argb:ffffff87
+rofi.ssh-client: ssh
+rofi.modi: run,ssh,window
+rofi.run-command: {cmd}
+rofi.run-shell-command: {terminal} -e "{cmd}"
+rofi.sidebar-mode: true

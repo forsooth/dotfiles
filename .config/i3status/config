@@ -1,0 +1,50 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 30
+	color_good = "#00A5FF"
+	color_bad = "#FF0087"
+}
+
+order += "ipv6"
+order += "run_watch VPNC"
+order += "path_exists VPN"
+order += "wireless wlp2s0"
+order += "battery 0"
+order += "tztime local"
+order += "disk /"
+
+wireless wlp2s0 {
+        format_up = " W: (%quality at %essid, %bitrate) %ip "
+        format_down = " W: WiFi Disconnected "
+}
+
+battery 0 {
+        format = " %status %percentage %remaining "
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 15
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        format = " %title: %status "
+        path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+tztime local {
+        format = " Time: %d/%m/%Y %I:%M %p "
+}
+
+ipv6 {
+        format_up = " %ip "
+        format_down = " no IPv6 "
+}
+
+disk "/" {
+        format = " Disk: %free "
+}
