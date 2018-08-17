@@ -3,6 +3,7 @@ general {
         colors = true
         interval = 30
 	color_good = "#00A5FF"
+        color_degraded = "#FF00ff"
 	color_bad = "#FF0087"
 }
 
@@ -10,6 +11,7 @@ order += "ipv6"
 order += "run_watch VPNC"
 order += "path_exists VPN"
 order += "wireless wlp2s0"
+order += "volume master"
 order += "battery 0"
 order += "tztime local"
 order += "disk /"
@@ -17,6 +19,14 @@ order += "disk /"
 wireless wlp2s0 {
         format_up = " W: (%quality at %essid, %bitrate) %ip "
         format_down = " W: WiFi Disconnected "
+}
+
+volume master {
+format = " ♪: %volume "
+format_muted = " MM: %volume "
+device = "default"
+mixer = "Master"
+mixer_idx = 0
 }
 
 battery 0 {
