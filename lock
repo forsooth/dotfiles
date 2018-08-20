@@ -1,0 +1,9 @@
+#!/bin/bash
+tmpbg='/tmp/screen.png'
+icon='/home/matt/img/System_Files/lock.png'
+(( $# )) && { icon=$1; }
+
+scrot "$tmpbg"
+convert "$tmpbg" -scale 5% -scale 2000% -fill black -colorize 50% "$tmpbg"
+convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
+i3lock -ei "$tmpbg" --insidecolor=00000000 --insidewrongcolor=ff00005f --insidevercolor=00ff005f --ringvercolor=87df8787 --ringwrongcolor=df878787 --linecolor=ffdf87ff --ringcolor=ff0087ff --keyhlcolor=ffff87ff --bshlcolor=ff8787ff --radius=120 --veriftext='' --wrongtext='' -k --timepos='920:25' --datepos='920:150' --timecolor=ffffffff --datecolor=ffffffff --timesize=350 --datesize=100 --timestr='%l:%M%p' --datestr='%A, %B %e' --timefont='Lato Light' --datefont='Lato Light'
